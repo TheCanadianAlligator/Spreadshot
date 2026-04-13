@@ -10,8 +10,9 @@ These are the notes I've taken from Unreal's default FPS Arena Shooter template.
 * Shooting/stop shooting is called by an event called "Enhanced Input Action IA_Shoot" (Triggered/cancelled/completed) or the events "Event Touch Shoot Start" and "Event Touch Shoot End" from BPI Touch Shooter.
 	* "BPI" stands for "Blueprint interface."
 	* BPI Touch Shooter is in Variant_Shooter/Input. I don't know how to see inside it but judging by the name and its location I think it's for touchscreen controls.
-	* For some reason we check first if this is allowed (**Get** Is Valid/Is Not Valid) and only if it's allowed, we give the **Start Firing** function (located in [+ShooterWeaponBase](#FPS Arena Shooter template:ShooterWeaponBase)) our gun and tell it to fire.
-	* If it's not allowed, we give the **Stop Firing** function (also in [+ShooterWeaponBase](#FPS Arena Shooter template:ShooterWeaponBase)) our gun and tell it to stop firing.
+	* IA_Shoot is an Input Action with the triggers "Pressed" and "Released." In the input handler we give it the keybinds "Left Mouse Button" and "Gamepad Right Trigger" so IA_Shoot activates the Pressed trigger when either one is pressed, and activates the Released trigger when either one is released. This one is a digital output (0/1, true/false) but others like those based on looking or movement can have different outputs.
+* For some reason we check first if this is allowed (**Get** Is Valid/Is Not Valid) and only if it's allowed, we proceed to the **Start Firing** event (located in [+ShooterWeaponBase](#FPS Arena Shooter template:ShooterWeaponBase)), giving it our gun, and we tell it to fire.
+* If it's not allowed, we tell the **Stop Firing** event in [+ShooterWeaponBase](#FPS Arena Shooter template:ShooterWeaponBase) to stop firing.
 
 
 ### Swap weapon:
