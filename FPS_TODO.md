@@ -64,9 +64,9 @@ If you run this through an AI I will actually fucking murder you.
 
 
 * ☐ Shooting a weapon
-	* ▷ On left click: (actually in IA_Shoot, which I've just made, in case I want to accomodate controller for some reason.)
-		* ☐ ("triggered" is correct; for some reason the template uses both Cancelled and Completed for the stop case.)
-		* ☐ **The character** checks what gun we're using
+	* ☑ On left click: (actually in IA_Shoot, which I've just made, in case I want to accomodate controller for some reason.)
+		* ☑ ("triggered" is correct; for some reason the template uses both Cancelled and Completed for the stop case.)
+		* ☑ **The character** checks what gun we're using
 		* ☑ Tell **the gun** to start shooting
 			* ☑ **The gun** makes sure we're allowed to shoot right now (have we waited long enough between each shot?)
 			* ☑ Umm get a refresher on how the events work in that other template lol
@@ -88,12 +88,19 @@ If you run this through an AI I will actually fucking murder you.
 
 
 
-* ☐ Changing weapon
+* ☑ Changing weapon
 	* ☑ on pressing 1/2/3:
-		* ☐ Tell the current gun to stop shooting
-		* ☐ Tell the player character to change what gun we're using
-		* ☐ Tell the HUD to change what gun it says we're using
+		* ☑ Tell the current gun to stop shooting
+		* ☑ Tell the player character to change what gun we're using
+		* ☑ Tell the HUD to change what gun it says we're using
 
 
+
+
+
+* ☐ We *can* just shoot at a wall and physics boxes, but it would be nice to have an enemy that can die.
+	* ☐ They should have HP.
+		* ☐ Obviously at this point we should implement a projectile's ability to do damage.
+	* ☐ Maybe they can move as a treat.
 
 
