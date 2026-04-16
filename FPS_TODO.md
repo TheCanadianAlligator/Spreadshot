@@ -90,19 +90,19 @@ P2 - Stretch
 				* ☑ Okay we use a Create Event dispatcher
 		* ☐ Shoot da gun (P1 Medium - Large)
 			* ☐ Create the gun's projectile(s) that fly towards where we're facing	(P1 Small - Medium)
-				* ☐ Where are we?
-				* ☐ Where is our camera pointed?
-				* ☐ The bullet should have some randomized aim variance.
-				* ☐ The bullet should come from somewhere just in front of/below the camera, and target towards either a faraway point or the closest solid intersection.
+				* ☑ Where are we?
+				* ☑ Where is our camera pointed?
+				* ☑ The bullet should have some randomized aim variance.
+				* ☑ The bullet should come from somewhere just in front of/below the camera, and target towards either a faraway point or the closest solid intersection.
 		* ☐ The bullet should ignore the its owner so we don't shoot ourselves.		
 			* ☐ (this shouldn't affect rocket jumping, as it's the explosion that causes the impulse.)
 		* ☐ Only process the first hit event received to prevent spam damage/impulse. 
 			* ☐ Alter this somehow to get it to affect multiple enemies, but only once, or maybe put it on a cooldown. (P2 Medium)
 				* ☐ I thought at first maybe have the bullet fill an array of pawns it's hit, but the cooldown idea sounds more fun. Imagine a super-bouncy weapon dealing tons of damage to one guy in a tight space.
-		* ☐ Wait between each shot, with time variance depending on the gun we're using.
-			* ☐ I want to preserve my wrists so let's just have all guns full auto (you can just hold down LMB to keep shooting). This means scheduling another shoot event as soon as the refire timer is done.
-	* ☐ When we release left click, tell the gun to stop shooting.
-		* ☐ Stop the timer scheduling the next shoot event.
+		* ☑ Wait between each shot, with time variance depending on the gun we're using.
+			* ☑ I want to preserve my wrists so let's just have all guns full auto (you can just hold down LMB to keep shooting). This means scheduling another shoot event as soon as the refire timer is done.
+	* ☑ When we release left click, tell the gun to stop shooting.
+		* ☑ Stop the timer scheduling the next shoot event.
 
 
 
