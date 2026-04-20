@@ -27,7 +27,7 @@ P2 - Stretch
 	* ☑ How fast do we get to shoot?
 		* ☑ Firerate in Rounds Per Second.
 		* ☑ Converts FireRate_RPS to FireRate_Timer, just because it's kind of easier to visualize for me.
-			* ☐ "mr brown when are we gonna use this lol" videogames. videogames are where we're gonna use this. make sure this shit works
+			* ☑ "mr brown when are we gonna use this lol" videogames. videogames are where we're gonna use this. make sure this shit works
 	* ☑ How many projectiles per shot?
 		* ☐ This could be a Float for a chance to multishot, but maybe that can be a more of "exploding dice" situation somewhere else. (P2 Medium)
 		* ☑ Add an "Accurate" flag + AccurateSpread value to ALL weapons for a single consistent shot and chaotic multishots.
@@ -38,16 +38,16 @@ P2 - Stretch
 
 * ☐ Weapon + projectile types (P2 Medium - Large)
 	* ☐ Blaster for now will be very standard just to make sure things are working
-		* ☐ 2 shots per second
+		* ☑ 2 shots per second
 		* ☐ give shots a little explosion with a lot of push force
 	* ☐ Machinegun. Let's model it roughly after maybe a mix of Blood's Tommygun and Doom 64 Unmaker - that sound fun. <https://www.youtube.com/watch?v=vvkraMwjo24>
-		* ☐ 600rpm = 10rps
-		* ☐ Three relatively fast projectiles
-			* ☐ Maybe we can somehow give each projectile its own spread, so shooting centre is still consistent, but you also have shots flying at peripheral enemies.
+		* ☑ 600rpm = 10rps
+		* ☑ Three relatively fast projectiles
+			* ☑ Maybe we can somehow give each projectile its own spread, so shooting centre is still consistent, but you also have shots flying at peripheral enemies.
 			* ☑ Add an "Accurate" flag + AccurateSpread value to ALL weapons for a single consistent shot and chaotic multishots.
 	* ☐ Shotgun - let's model this one after UT's Flak Cannon.
-		* ☐ 1rps is fine.
-		* ☐ At least 6 or 7 projectiles, bouncy, but short lifetime.
+		* ☑ 1rps is fine.
+		* ☑ At least 6 or 7 projectiles, bouncy, but short lifetime.
 			* ☐ Wait do I need to add drag to the projectiles
 
 
@@ -59,7 +59,7 @@ P2 - Stretch
 		* ☑ ~~Check: should this be a vector, or just a float we add to the CONSTRUCTION of a vector?~~ It's a vector, but init/max speed is a float (makes sense, vectors are basically x amount of floats anyways.) It lives/should talk to the Projectile Movement component.
 		* ☑ Oh there's just a ProjectileMovement component we can put on our projectile. It handles initial/max speed, whether it should bounce, how bouncy, whether it's homing.
 	* ▷ How quickly does it fade from existence? This is important for distinguishing short vs long range weapons.
-	* ▷ How much damage does it do? 
+	* ☐ How much damage does it do? 
 		* ☐ Implementing the dealing of damage can wait until we have hurtable NPCs.
 	* ▷ How much push force does it cause?
 		* ☐ Implement the push force. We might want to do this sooner than damage, so we can push boxes around, and rocket jump.
@@ -88,19 +88,22 @@ P2 - Stretch
 			* ☑ **The gun** makes sure we're allowed to shoot right now (have we waited long enough between each shot?)
 			* ☑ Umm get a refresher on how the events work in that other template lol
 				* ☑ Okay we use a Create Event dispatcher
-		* ☐ Shoot da gun (P1 Medium - Large)
-			* ☐ Create the gun's projectile(s) that fly towards where we're facing	(P1 Small - Medium)
+		* ☑ Shoot da gun (P1 Medium - Large)
+			* ☑ Create the gun's projectile(s) that fly towards where we're facing	(P1 Small - Medium)
 				* ☑ Where are we?
 				* ☑ Where is our camera pointed?
 				* ☑ The bullet should have some randomized aim variance.
+					* ☐ Currently this spread narrows based on how far away we are aiming. We can cheat this for now by enclosing the level but we should rectify this for consistency.
 				* ☑ The bullet should come from somewhere just in front of/below the camera, and target towards either a faraway point or the closest solid intersection.
-		* ☐ The bullet should ignore the its owner so we don't shoot ourselves.		
+		* ☑ __The bullet should ignore the its owner so we don't shoot ourselves.__		
 			* ☐ (this shouldn't affect rocket jumping, as it's the explosion that causes the impulse.)
-		* ☐ Only process the first hit event received to prevent spam damage/impulse. 
+			* ☑ I don't know why the bullet sometimes doesn't ignore its owner, or itself, but I've made some checks to mitigate that behaviour.
+		* ☒ Only process the first hit event received to prevent spam damage/impulse. 
+			* ☐ **This is causing the bullets to basically become ghosts after the first hit event, and should be rectified immediately.**
 			* ☐ Alter this somehow to get it to affect multiple enemies, but only once, or maybe put it on a cooldown. (P2 Medium)
 				* ☐ I thought at first maybe have the bullet fill an array of pawns it's hit, but the cooldown idea sounds more fun. Imagine a super-bouncy weapon dealing tons of damage to one guy in a tight space.
-		* ☑ Wait between each shot, with time variance depending on the gun we're using.
-			* ☑ I want to preserve my wrists so let's just have all guns full auto (you can just hold down LMB to keep shooting). This means scheduling another shoot event as soon as the refire timer is done.
+	* ☑ Wait between each shot, with time variance depending on the gun we're using.
+		* ☑ I want to preserve my wrists so let's just have all guns full auto (you can just hold down LMB to keep shooting). This means scheduling another shoot event as soon as the refire timer is done.
 	* ☑ When we release left click, tell the gun to stop shooting.
 		* ☑ Stop the timer scheduling the next shoot event.
 
